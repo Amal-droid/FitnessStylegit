@@ -1,0 +1,33 @@
+{% extends 'admin_home.html' %}
+{% load crispy_forms_filters %}
+{% block content %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">sl no</th>
+      <th scope="col">Instructor</th>
+      <th scope="col">Batch</th>
+
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for i in batch %}
+    <tr>
+      <th scope="row">i</th>
+      <td>{{i.batch_name}}/td>
+      <td>{{i.batch_time}}</td>
+    </tr>
+
+
+  {% endfor %}
+
+  </tbody>
+</table>
+{% for message in messages %}
+
+{{ message }}
+
+{% endfor %}
+
+{% endblock %}

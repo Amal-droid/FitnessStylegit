@@ -1,0 +1,22 @@
+{% extends 'physican/physician_dashboard.html' %}
+{% load crispy_forms_filters %}
+{% block content %}
+
+                     <div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+<form method="post">{% csrf_token %}
+    {{form|crispy}}
+<input type="submit">
+</form>
+          {% for message in meaasges %}
+          {{ message }}
+          {% endfor %}
+
+      </div>
+    </div>
+  </div>
+                     </div>
+
+{% endblock %}

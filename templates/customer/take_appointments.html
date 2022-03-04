@@ -1,0 +1,9 @@
+{% extends 'customer/customer_dashboard.html' %}
+{% load crispy_forms_filters %}
+{% block content %}
+
+<form method = 'post'>{% csrf_token %}
+{{appoinmentform|crispy}}
+<button type="submit">book</button>
+</form>
+{% endblock %}

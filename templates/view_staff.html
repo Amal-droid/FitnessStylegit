@@ -1,0 +1,33 @@
+{% extends 'admin_home.html' %}
+  {% load crispy_forms_filters %}
+{% block content %}
+<!--<div style="width:40%">-->
+<!--<div class="card">-->
+    <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">sl</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for i in data %}
+    <tr>
+      <th scope="row">1</th>
+      <td>{{i.name}}</td>
+      <td>{{i.DOB}}</td>
+      <td>{{i.age}}</td>
+        <td>{{i.address}}</td>
+      <td>{{i.mail}}</td>
+      <td>{{i.phone}}</td>
+        <td>{{i.required_batch_name}}</td>
+    </tr>
+
+        {% endfor %}
+  </tbody>
+</table>
+<!--</div>-->
+<!--</div>-->
+{% endblock %}

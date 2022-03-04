@@ -1,0 +1,27 @@
+{% extends 'customer/customer_dashboard.html' %}
+{% block content %}
+
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">equipments</th>
+      <th scope="col">equip_count</th>
+      <th scope="col">equip_weight</th>
+    </tr>
+  </thead>
+  <tbody>
+{%  for i in data %}   <tr>
+      <th scope="row">1</th>
+      <td>{{i.equipments}}</td>
+      <td>{{i.equip_count}}</td>
+      <td>{{i.equip_weight}}</td>
+
+</tr>
+{% endfor %}
+
+  </tbody>
+</table>
+
+
+{% endblock %}

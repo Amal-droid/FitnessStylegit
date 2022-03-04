@@ -1,0 +1,27 @@
+{% extends 'instructor/instructor_dashboard.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+
+
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card">
+      <div class="card-body">
+
+<div>
+
+   <form method="POST" >{% csrf_token %}
+       {{ form|crispy }}
+        <input type="submit">
+ </form>
+</div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

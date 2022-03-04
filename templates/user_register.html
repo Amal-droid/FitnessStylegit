@@ -1,0 +1,23 @@
+{% extends 'admin_home.html' %}
+{% block content %}
+{% load crispy_forms_filters %}
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+{% for message in messages %}
+        <div class="alert alert-success">
+      <strong>{{message}}</strong>
+        </div>
+        {% endfor %}
+    <div> <FORM method="POST" enctype="multipart/form-data">{% csrf_token %}
+        {{form|crispy}}
+        {{form2|crispy}}
+        <button type="submit" class = "btn btn-primary">submit</button>
+    </FORM>
+    </div>
+</div>
+    </div>
+  </div>
+</div>
+{% endblock %}

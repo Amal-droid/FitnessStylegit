@@ -1,0 +1,14 @@
+{% extends 'admin_home.html' %}
+{% load crispy_forms_filters %}
+{% block content %}
+{% csrf_token %}
+<div class = 'card'>
+<form method="POST"> {% csrf_token %}
+{{ form|crispy }}
+    <input type="submit" submit>
+</form>
+    {% for message in  messages %}
+    {{ message }}
+    {% endfor %}
+</div>
+{% endblock %}

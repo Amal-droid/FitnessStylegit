@@ -1,0 +1,34 @@
+{% extends 'admin_home.html' %}
+{% block content %}
+
+
+ <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+      <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">ITEM</th>
+      <th scope="col">COUNT</th>
+      <th scope="col">WEIGHT</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for i in items %}
+    <tr>
+      <th scope="row">{{ i }}</th>
+      <td>{{ i.equipments }}</td>
+      <td>{{ i.equip_count }}</td>
+        <td>{{ i.equip_weight }}<td><a href="{% url 'delete' i.id %}"><input type="button" value="DELETE"></a></td></td>
+    </tr>
+
+  {% endfor %}
+  </tbody>
+</table>
+      </div>
+    </div>
+ </div>
+
+
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'physican/physician_dashboard.html' %}
+{% block content %}
+
+                     <div class="row">
+  <div class="col-sm-12">
+    <div class="card">
+      <div class="card-body">
+
+<table class="table">
+  <thead>
+    <tr>
+
+      <th scope="col">customer name</th>
+      <th scope="col">physician</th>
+      <th scope="col">user_id</th>
+      <th scope="col">date</th>
+      <th scope="col">approval_status</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in data %}
+    <tr>
+
+      <td>{{i.name}}</td>
+      <td>{{i.physician}}</td>
+      <td>{{i.user_id}}</td>
+      <td>{{i.date}}</td>
+      <td>
+        {% if i.approval_status == 0 %}
+        <a href="{% url 'approve' i.id %}">Approve</a>/<a href="{% url 'reject' i.id %}">Reject</a>
+        {% elif i.approval_status == 1  %}
+        <p>approved</p>
+        {% elif i.approval_status == 2  %}
+        <p>rejected</p>
+        {% endif %}
+      </td>
+
+
+
+
+
+
+</tr>
+    {% endfor %}
+
+
+  </tbody>
+</table>
+
+      </div>
+    </div>
+  </div>
+                     </div>
+
+{% endblock %}

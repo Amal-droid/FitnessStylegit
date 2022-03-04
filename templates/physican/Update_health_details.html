@@ -1,0 +1,42 @@
+{% extends 'physican/physician_dashboard.html' %}
+{% block content %}
+
+                     <div class="row">
+  <div class="col-sm-12">
+    <div class="card">
+      <div class="card-body">
+`
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">name</th>
+      <th scope="col">Height</th>
+      <th scope="col">Weight</th>
+        <th scope="col">transformation_status</th>
+      <th scope="col">medicine_consumption</th>
+      <th scope="col">health_issues</th>
+    </tr>
+  </thead>
+  <tbody>
+{%  for i in data %}
+<tr>
+      <th scope="row">1</th>
+      <td>{{i.name}}</td>
+      <td>{{i.Height}}</td>
+      <td>{{i.Weight}}</td>
+      <td>{{i.transformation_status}}</td>
+      <td>{{i.medicine_consumption}}</td>
+      <td>{{i.health_issues}}</td>
+    <td><a href="{% url 'UpdateH_Form' i.id %}"><button type="button" class="btn btn-secondary">update</button></a> </td>
+</tr>
+{% endfor %}
+  </tbody>
+</table>
+
+      </div>
+    </div>
+  </div>
+                     </div>
+
+{% endblock %}
