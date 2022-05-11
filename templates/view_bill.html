@@ -1,16 +1,26 @@
 {% extends 'admin_home.html' %}
 {% block content %}
+   <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">sl</th>
+      <th scope="col">user</th>
+      <th scope="col">present days</th>
+      <th scope="col">amount</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for i in data %}
+    <tr>
+      <th scope="row">1</th>
+      <td>{{i.user}}</td>
+      <td>{{i.present_days}}</td>
+        <td>{{i.amount}}</td>
+        <td><input type="submit" value="pay"></td>
+    </tr>
 
-<div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-          {{ viewbill.as_p }}
+        {% endfor %}
+  </tbody>
+</table>
 
-      </div>
-        <div> <div>   {% for message in messages %}
-          <strong>{{ message }}</strong>
-           {% endfor %}</div>
-        </div>
-    </div>
-</div>
 {% endblock %}

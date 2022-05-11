@@ -19,6 +19,10 @@ GENDER_CHOICES = (
     ('M', 'Male'),
     ('F', 'Female'),
 )
+ATTENDANCE_STATUS = (
+   ('P', 'PRESENT'),
+   ('A', 'ABSENT')
+)
 
 
 class Register_details(models.Model):
@@ -55,8 +59,8 @@ class Instructor(models.Model):
 
 
 class Attendance(models.Model):
-    name = models.CharField(max_length=20)
-    attendence = models.CharField(max_length=20)
+    name = models.ForeignKey(Register_details,on_delete=models.CASCADE,related_name='attendance')
+    attendance_status = models.CharField(choices=ATTENDANCE_STATUS,max_length=5,null=True)
     date = models.DateField()
 
 
@@ -68,7 +72,7 @@ class Bill(models.Model):
     due_date = models.DateField()
     bill_status =models.BooleanField(default=False,help_text = "paid")
     amount =models.IntegerField()
-    paid_on =models.DateField()
+
 
 #
 #
@@ -92,10 +96,10 @@ class health_details(models.Model):
 
 
 class first_aid(models.Model):
-    first_aid_1 = models.IntegerField()
-    first_aid_2 = models.IntegerField()
-    first_aid_3 = models.IntegerField()
-    first_aid_4 = models.IntegerField()
+    first_aid_1 =models.CharField(max_length=50)
+    first_aid_2 = models.CharField(max_length=50)
+    first_aid_3 = models.CharField(max_length=50)
+    first_aid_4 = models.CharField(max_length=50)
     cause = models.CharField(max_length=50)
 
 #   work pending
@@ -120,3 +124,8 @@ class diet(models.Model):
 class modelcomplaints(models.Model):
     name = models.CharField(max_length=20)
     complaints = models.TextField()
+
+
+
+
+

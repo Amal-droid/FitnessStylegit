@@ -7,8 +7,13 @@
       <div class="card-body">
 <form method="POST"> {% csrf_token %}
     {{ form|crispy }}
-    <a href="{% url 'generate'"><input type = button value="generate bill"></a>
+    <input type = submit value="generate bill">
 </form>
+          {% for message in messages %}
+	<div class="alert alert-success">
+  <strong>{{message}}</strong>
+	</div>
+         {% endfor %}
       </div>
     </div>
 </div>

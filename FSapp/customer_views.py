@@ -38,19 +38,20 @@ def askmedicaldoubts(request):
     medicaldoubtsform =askmedicaldoubts_form()
 
     if request.method=='POST':
-        print("ddddd")
-        medicaldoubtsform=askmedicaldoubts_form(request.post)
+        medicaldoubtsform = askmedicaldoubts_form(request.POST)
         if medicaldoubtsform.is_valid():
             medicaldoubtsform.save()
+            messages.info(request,'your doubts are added')
     return render(request,'customer/ask_medical_doubts.html',{'medicaldoubtsform':medicaldoubtsform})
 
 
 def registercomplaints(request):
     complaints_form = complaint_form()
     if request.method=='POST':
-        complaints_form=complaint_form(request.post)
+        complaints_form=complaint_form(request.POST)
         if complaints_form.is_valid():
             complaints_form.save()
+            messages.info(request, 'your complaints are added')
     return render(request,'customer/register_complaints.html',{'complaints_form':complaints_form})
 
 

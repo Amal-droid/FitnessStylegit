@@ -1,0 +1,22 @@
+{% extends 'admin_home.html' %}
+{% block content %}
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">name</th>
+      <th scope="col">complaints</th>
+    </tr>
+  </thead>
+  <tbody>{% for i in data %}
+    <tr>
+      <td>{{ i.name }}</td>
+      <td>{{ i.complaints }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+
+
+{% endblock %}

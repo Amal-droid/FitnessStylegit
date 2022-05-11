@@ -2,26 +2,10 @@
 {% load crispy_forms_filters %}
 {% block content %}
 
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Name</th>
-      <th scope="col">Attendance</th>
-      <th scope="col">Date</th>
-    </tr>
-  </thead>
-  <tbody>
-  {% for i in data %}
-    <tr>
-      <th scope="row">{{ i }}</th>
-      <td>{{ i.name }}</td>
-      <td>{{ i.attendence }}</td>
-      <td>{{ i.date }}</td>
-    </tr>
 
-  {% endfor %}
-  </tbody>
-</table>
-
+Date : {% now "jS F Y " %}
+<h4>name:</h4>
+{% for i in data %}
+{{ i.name }}
+{% endfor %}
 {% endblock %}

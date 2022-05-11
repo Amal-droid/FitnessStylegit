@@ -9,9 +9,12 @@
 
 <form method="POST">{% csrf_token %}
     {{ medicaldoubtsform|crispy }}
-    <input type="submit" add doubt>
+    <input type="submit" value="add doubt">
 </form>
 
+          {% for message in messages  %}
+          {{ message }}
+          {% endfor %}
 
 </div>
     </div>

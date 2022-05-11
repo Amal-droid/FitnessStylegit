@@ -1,7 +1,7 @@
 from django.urls import path
 
 from FSapp import views, physican_views, customer_views, instructorviews
-
+        
 urlpatterns = [
     path('', views.home, name='home'),
     path('login/', views.login_view, name='login'),
@@ -19,7 +19,7 @@ urlpatterns = [
     path('generatebill/',views.billpage,name='generatebill'),
     path('generate/',views.generatebill,name='generate'),
     path('viewfeedback/',views.viewfeedback,name='viewfeedback'),
-    path('services/',views.services,name ='services'),
+    path('viewcomplaints/',views.viewcomplaints,name ='viewcomplaints'),
 
 
 
@@ -30,6 +30,7 @@ urlpatterns = [
     path('UpdateHealthDetails',physican_views.updatehealthdetailspage,name='UpdateHealthDetails'),
     path('UpdateMedicineDetails/',physican_views.updatemedicinedetailspage,name='UpdateMedicineDetails'),
     path('Firstaid/',physican_views.firstaid,name='Firstaid'),
+    path('addFirstaid/',physican_views.addfirstaid,name='addFirstaid'),
     path('UpdateH_Form/<int:id>/',physican_views.updateHbutton,name='UpdateH_Form'),
     path('updateU_Form/<int:id>/',physican_views.updateUbutton,name='updateU_Form'),
     path('ViewAppoinments/',physican_views.viewappoinments,name='ViewAppoinments'),
@@ -60,5 +61,5 @@ urlpatterns = [
     path('viewuserdiet/',instructorviews.viewUserdiet,name='viewuserdiet'),
     path('udietbutton/<int:id>',instructorviews.Updateuserdiet,name ='udietbutton'),
     path('add_gym_equipments/',instructorviews.add_equipments,name ='add_gym_equipments'),
-    path('addattendance/',instructorviews.addattendance,name='addattendance')
+    path('addattendance/',instructorviews.attendance,name='addattendance')
 ]

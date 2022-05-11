@@ -22,6 +22,8 @@ def login_view(request):
                 return redirect('customerdashboard')
             if user.is_physician:
                 return redirect('physician_dashboard')
+            if user.is_instructor:
+                return redirect('instructordashboard')
         else:
             messages.info(request,"invalid credentials")
     return render(request,'login.html')
@@ -34,17 +36,20 @@ def addinstructor(request):
     form = login_register()
     form2 = instructorsignupform()
     if request.method == 'POST':
-        form2 = instructorsignupform(request.POST)
         form = login_register(request.POST)
+        form2 = instructorsignupform(request.POST,request.FILES)
         if form.is_valid() and form2.is_valid():
             user = form.save(commit=False)
-            user.is_physician = True
+            user.is_instructor = True
             user.save()
             a = form2.save(commit=False)
             a.user = user
-            a.save
+            a.save()
             messages.info(request,"instructor added")
             return redirect('add_instructor')
+    else:
+        form = login_register()
+        form2 = instructorsignupform()
     return render(request,'add_instructor.html', {'form': form,'form2':form2})
 
 
@@ -60,7 +65,7 @@ def add_customer(request):
             user.save()
             a = form2.save(commit=False)
             a.user=user
-            a.save
+            a.save()
             messages.info(request,"USER ADDED")
     return render(request,'user_register.html',{'form': form,'form2':form2})
 
@@ -151,11 +156,15 @@ def billpage(request):
             messages.info(request,"bill generated")
     return render(request,'generate_bill.html',{'form':form})
 def generatebill(request):
-    return  render(request,'generate_bill.html')
+    data = Bill.objects.all()
+
+    return  render(request,'view_bill.html',{'data':data})
 
 def viewfeedback(request):
-    return render(request,'view_feedback.html')
+    data = modelcomplaints.objects.all()
+    return render(request,'view_feedback.html',{'data': data})
 
-def services(request):
-    return render(request,'services.html')
+def viewcomplaints(request):
+    data=modelcomplaints.objects.all()
+    return render(request,'complaints.html',{'data':data})
 # Create your views here.

@@ -73,6 +73,6 @@ def add_equipments(request):
         form = Gym_Equipments()
     return render(request,'instructor/add_gym_equip.html',{'form':form})
 
-def addattendance(request):
-    data = Attendance.objects.all()
-    return render(request,'instructor/add_user_attendance.html',{'data':data})
+def attendance(request):
+    
+    return render(request,'instructor/add_user_attendance.html',{})

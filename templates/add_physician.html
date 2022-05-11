@@ -9,8 +9,8 @@
     {% for message in messages %}
     {% endfor %}
         <form method="POST" >{% csrf_token %}
-        {{login_form|crispy}}
-        {{add_physicianform1|crispy}}
+        {{ login_form|crispy }}
+        {{ add_physicianform1|crispy }}
         <button type="submit">submit</button>
     </form>
 </div>

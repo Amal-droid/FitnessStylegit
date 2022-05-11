@@ -20,13 +20,13 @@
 {%  for i in data %}
 <tr>
       <th scope="row">1</th>
-      <td>{{i.name}}</td>
-      <td>{{i.Height}}</td>
-      <td>{{i.Weight}}</td>
-      <td>{{i.transformation_status}}</td>
-      <td>{{i.medicine_consumption}}</td>
-      <td>{{i.health_issues}}</td>
-    <td><a href="{% url 'Hupdatebutton' i.id %}"><button type="button" class="btn btn-secondary">update</button></a> </td>
+      <td>{{ i.name }}</td>
+      <td>{{ i.Height }}</td>
+      <td>{{ i.Weight }}</td>
+      <td>{{ i.transformation_status }}</td>
+      <td>{{ i.medicine_consumption }}</td>
+      <td>{{ i.health_issues }}</td>
+      <td><a href="{% url 'Hupdatebutton' i.id %}"><button type="button" class="btn btn-secondary">update</button></a> </td>
 </tr>
   {% endfor %}
   </tbody>

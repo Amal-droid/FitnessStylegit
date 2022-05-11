@@ -1,4 +1,4 @@
-{% extends 'customer/customer_dashboard.html' %}
+{% extends 'physican/physician_dashboard.html' %}
 {% load crispy_forms_filters %}
 {% block content %}
 
@@ -6,17 +6,15 @@
   <div class="col-sm-6">
     <div class="card">
       <div class="card-body">
-
-<form method="POST">{% csrf_token %}
-    {{ complaints_form|crispy }}
-    <input type="submit" value="add doubt">
+<form method="post">{% csrf_token %}
+    {{form|crispy}}
+<input type="submit">
 </form>
-
-          {% for message in messages %}
+          {% for message in meaasges %}
           {{ message }}
           {% endfor %}
 
-</div>
+      </div>
     </div>
   </div>
                      </div>

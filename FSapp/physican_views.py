@@ -46,7 +46,14 @@ def updatemedicinedetailspage(request):
     data = health_details.objects.all()
     return render(request,'physican/Update_medicine_details.html',{'data': data})
 
-
+def addfirstaid(request):
+    form = addfirstaidform()
+    if request.method == 'POST':
+        form = addfirstaidform(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.info(request,"firstaid added")
+    return render(request,'physican/add_firstaid.html',{'form': form})
 def firstaid(request):
     data = first_aid.objects.all()
     return render(request,'physican/view_first_aid.html')

@@ -1,8 +1,9 @@
+
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 
 from FSapp.models import Login, Register_details, Batch, Instructor, equipments, Bill, health_details, appoinments, \
-    medical_doubts, modelcomplaints, diet, Attendance
+    medical_doubts, modelcomplaints, diet, Attendance, first_aid
 
 
 class DateInput(forms.DateInput):
@@ -75,7 +76,7 @@ class Gym_Equipments(forms.ModelForm):
 class billing(forms.ModelForm):
     class Meta:
         model = Bill
-        fields = ['from_date','to_date','present_days','due_date']
+        fields = ['user','from_date','to_date','present_days','due_date','amount']
         widgets ={
         'from_date' : DateInput(),
         'to_date': DateInput(),
@@ -86,7 +87,7 @@ class billing(forms.ModelForm):
 class viewbill(forms.ModelForm):
     class Meta:
         model = Bill
-        fields =['user','amount','paid_on','bill_status']
+        fields =['user','amount','bill_status']
 
          #
         #
@@ -130,4 +131,7 @@ class complaint_form(forms.ModelForm):
     class Meta:
         model =modelcomplaints
         fields = ['name','complaints']
-
+class addfirstaidform(forms.ModelForm):
+    class Meta:
+        model = first_aid
+        fields =['first_aid_1','first_aid_2','first_aid_3','first_aid_4','cause']
